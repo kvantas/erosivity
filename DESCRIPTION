@@ -1,0 +1,13 @@
+Package: erosivity
+Type: Package
+Title: Calculation of Rainfall Erosivity Factor from RUSLE 
+Version: 0.1.0
+Authors@R: person("Konstantinos", "Vantas", role = c("aut", "cre"),
+  email = "kon.vantas@gmail.com",
+  comment = c(ORCID = "0000-0001-6387-8791"))
+Maintainer: Konstantinos Vantas <kon.vantas@gmail.com>
+Description: Computes the rainfall erosivity R factor from the Revised
+    Universal Soil Loss Equation (RUSLE), using precipitation data.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true

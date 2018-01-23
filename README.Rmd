@@ -1,0 +1,21 @@
+---
+output:
+  md_document:
+    variant: markdown_github
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+# erosivity
+
+The goal of erosivity is to compute the rainfall erosivity, R factor, from the Revised
+    Universal Soil Loss Equation (RUSLE), using precipitation data.
+
