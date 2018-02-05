@@ -7,12 +7,14 @@ Authors@R: person("Konstantinos", "Vantas", role = c("aut", "cre"),
   comment = c(ORCID = "0000-0001-6387-8791"))
 Maintainer: Konstantinos Vantas <kon.vantas@gmail.com>
 Description: Computes the rainfall erosivity R factor from the Revised
-    Universal Soil Loss Equation (RUSLE), using precipitation data.
+    Universal Soil Loss Equation using precipitation data.
 License: MIT + file LICENSE
+Depends: R (>= 3.4.0)
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1
 Imports: tibble(>= 1.4.1),
+    lubridate (>= 1.7.1),
     dplyr (>= 0.7.4)
 Suggests: knitr (>= 1.17),
     rmarkdown (>= 1.8),
