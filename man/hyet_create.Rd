@@ -12,10 +12,10 @@ hyet_create(prec_dates, prec_values)
 \item{prec_values}{a POSIXct vector with dates values}
 }
 \value{
-a tibble
+a tibble with the variables \code{dates} and \code{prec}
 }
 \description{
-\code{hyet_create} uses precipitation and dates values to create a tiblle
+\code{hyet_create} uses precipitation and dates values to create a tibble
 that represents the distribution of rainfall over time. This function checks
 the validity of precipitation and date values and returns an error if: a)
 they don't have the same length, b) precipitation is not numeric or c) dates

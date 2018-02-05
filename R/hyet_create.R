@@ -1,6 +1,6 @@
 #' Create a hyetograph
 #'
-#' \code{hyet_create} uses precipitation and dates values to create a tiblle
+#' \code{hyet_create} uses precipitation and dates values to create a tibble
 #' that represents the distribution of rainfall over time. This function checks
 #' the validity of precipitation and date values and returns an error if: a)
 #' they don't have the same length, b) precipitation is not numeric or c) dates
@@ -9,7 +9,7 @@
 #' @param prec_dates a numeric vector of precipitation values
 #' @param prec_values a POSIXct vector with dates values
 #'
-#' @return a tibble
+#' @return a tibble with the variables \code{dates} and \code{prec}
 #' @export hyet_create
 #'
 #' @examples
@@ -26,7 +26,7 @@
 #'
 hyet_create <- function(prec_dates, prec_values) {
 
-  if(!is.null(prec_dates)) {
+  if (!is.null(prec_dates)) {
     if (length(prec_values) != length(prec_dates)) {
       stop("prec_values and  prec_dates lenghts must be equal.")
     }

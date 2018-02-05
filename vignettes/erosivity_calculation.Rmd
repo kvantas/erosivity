@@ -18,16 +18,16 @@ knitr::opts_chunk$set(
 
 The R coefficient (MJ.mm/ha/h/yr) is defined as the long-term average of the product of the kinetic energy of a storm and the maximum 30 min intensity (Renard et. al, 1987):
 
-$$ R = \frac{1}{n} \sum_{j=1}^{n} \sum_{k=1}^{m_j} (EI_{30})_{k} $$
+$R = \frac{1}{n} \sum_{j=1}^{n} \sum_{k=1}^{m_j} (EI_{30})_{k}$
 
 where $n$ is the number of years with rainfall records, $m_j$ the number of storms during year $j$ and $EI_{30}$
 the erosivity of storm $k$. The erosivity $EI_{30}$ (MJ.mm/ha/h) is equal to:
 
-$$ EI_{30} = \left( \sum_{r=1}^{m} e_r \cdot v_{r} \right) \cdot I_{30} $$
+$EI_{30} = \left( \sum_{r=1}^{m} e_r \cdot v_{r} \right) \cdot I_{30} $
 
 where $e_r$ is the energy of rainfall (MJ/ha/mm), $v_r$ the rainfall depth (mm) for the time interval $r$ of the hyetograph, which has been divided into $r = 1, 2, ..., m$ sub-intervals, such that each one of these is characterized by constant rainfall intensity and $I_{30}$ is the maximum rainfall intensity for a 30 minutes duration. The quantity $e_r$ is calculated for $r$ from the relation:
 
-$$ e_{r} = 0.29 \left( 1 - 0.72 e^{-0.05 \cdot i_{r}} \right) $$
+$e_{r} = 0.29 \left( 1 - 0.72 e^{-0.05 \cdot i_{r}} \right)$
 
 where $i_r$ is the rainfall intensity (mm/h). The rules that apply in order to single out the storms causing erosion and to divide rainfalls of large duration are:
 
