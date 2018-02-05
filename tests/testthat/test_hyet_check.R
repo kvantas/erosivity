@@ -19,15 +19,17 @@ test_that("hyet_check returns errors", {
   expect_error(hyet_check(hyet))
 
   # prec is not numeric
-  dt <- seq(from = as.POSIXct(0, origin = "2018-01-01"), length.out =  4,
-            by = "mins")
-  hyet <- tibble::tibble(dates = dt, prec = c("a", "b", "c", "d"))
+  hyet <- tibble::tibble(
+    dates = seq(from = as.POSIXct(0, origin = "2018-01-01"), length.out =  4,
+                by = "mins"),
+    prec = c("a", "b", "c", "d"))
   expect_error(hyet_check(hyet))
 
   # all ok
-  dt <- seq(from = as.POSIXct(0, origin = "2018-01-01"), length.out =  4,
-            by = "mins")
-  hyet <- tibble::tibble(dates = dt, prec = 1:4)
-  expect_null(hyet_check(hyet))
+  hyet2 <- tibble::tibble(
+    dates = seq(from = as.POSIXct(0, origin = "2018-01-01"), length.out =  4,
+                by = "mins"),
+    prec = 1:4)
+  expect_null(hyet_check(hyet2))
 
 })

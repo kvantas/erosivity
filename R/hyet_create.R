@@ -28,14 +28,14 @@ hyet_create <- function(prec_dates, prec_values) {
 
   if (!is.null(prec_dates)) {
     if (length(prec_values) != length(prec_dates)) {
-      stop("prec_values and  prec_dates lenghts must be equal.")
+      stop("prec_values and  prec_dates lenghts must be equal.", call. = FALSE)
     }
     if (!lubridate::is.POSIXct(prec_dates)) {
-      stop("prec_values must be a POSIXct vector.")
+      stop("prec_values must be a POSIXct vector.", call. = FALSE)
     }
   }
   if (!is.numeric(prec_values)) {
-    stop("prec_values must be a numeric vector.")
+    stop("prec_values must be a numeric vector.", call. = FALSE)
   }
 
   tibble::tibble(dates = prec_dates, prec = prec_values)
