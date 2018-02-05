@@ -21,11 +21,11 @@ Erosivity calculation
 
 The R coefficient (MJ.mm/ha/h/yr) is defined as the long-term average of the product of the kinetic energy of a storm and the maximum 30 min intensity (Renard et. al, 1987):
 
-$$R = \\frac{1}{n} \\sum\_{j=1}^{n} \\sum\_{k=1}^{m\_j} (EI\_{30})\_{k}$$
+$R = \\frac{1}{n} \\sum\_{j=1}^{n} \\sum\_{k=1}^{m\_j} (EI\_{30})\_{k}$
 
 where *n* is the number of years with rainfall records, *m*<sub>*j*</sub> the number of storms during year *j* and *E**I*<sub>30</sub> the erosivity of storm *k*. The erosivity *E**I*<sub>30</sub> (MJ.mm/ha/h) is equal to:
 
-$$EI\_{30} = \\left( \\sum\_{r=1}^{m} e\_r \\cdot v\_{r} \\right) \\cdot I\_{30}$$
+$EI\_{30} = \\left( \\sum\_{r=1}^{m} e\_r \\cdot v\_{r} \\right) \\cdot I\_{30}$
 
 where *e*<sub>*r*</sub> is the energy of rainfall (MJ/ha/mm), *v*<sub>*r*</sub> the rainfall depth (mm) for the time interval *r* of the hyetograph, which has been divided into *r* = 1, 2, ..., *m* sub-intervals, such that each one of these is characterized by constant rainfall intensity and *I*<sub>30</sub> is the maximum rainfall intensity for a 30 minutes duration. The quantity *e*<sub>*r*</sub> is calculated for *r* from the relation:
 
