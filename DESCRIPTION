@@ -1,7 +1,7 @@
 Package: erosivity
 Type: Package
 Title: Calculation of Rainfall Erosivity Factor from RUSLE 
-Version: 0.1.0
+Version: 0.0.9000
 Authors@R: person("Konstantinos", "Vantas", role = c("aut", "cre"),
   email = "kon.vantas@gmail.com",
   comment = c(ORCID = "0000-0001-6387-8791"))
@@ -11,3 +11,10 @@ Description: Computes the rainfall erosivity R factor from the Revised
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+RoxygenNote: 6.0.1
+Imports: tibble(>= 1.4.1),
+    dplyr (>= 0.7.4)
+Suggests: knitr (>= 1.17),
+    rmarkdown (>= 1.8),
+    testthat (>= 1.0.2)
+VignetteBuilder: knitr
