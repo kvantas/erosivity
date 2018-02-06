@@ -2,3 +2,4 @@
 
 export(hyet_create)
 export(hyet_fill)
+export(hyet_window_sum)

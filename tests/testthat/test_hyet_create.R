@@ -25,7 +25,7 @@ test_that("hyet_create returns errors", {
   dates <- seq(from = as.POSIXct(0, origin = "2018-01-01"),
                     length.out =  100,
                     by = "mins")
-  prec <-runif(100, 0, 10)
+  prec <- runif(100, 0, 10)
   expect_is(hyet_create(dates, prec), "tbl_df")
 
 

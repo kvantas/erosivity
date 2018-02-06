@@ -32,8 +32,8 @@ hyet_fill <- function(hyet, time_step) {
 
   # check parameters
   hyet_check(hyet)
-  if (!is.numeric(time_step) & length(time_step) != 1) {
-    stop("`time_step` must be a number.", call. = FALSE)
+  if (! assertthat::is.count(time_step)) {
+    stop("`time_step` must be a positive number.", call. = FALSE)
   }
 
   # create an empty time series

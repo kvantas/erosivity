@@ -6,8 +6,8 @@
 \title{Five minutes precipitation time series}
 \format{A data frame with 1679308 rows and 13 variables:
 \describe{
-  \item{date}{The time series' date}
-  \item{value}{precipitation, in mm}
+  \item{dates}{The time series' date}
+  \item{prec}{precipitation, in mm}
 }}
 \source{
 \url{http://kyy.hydroscope.gr/timeseries/d/1432/}

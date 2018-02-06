@@ -25,6 +25,10 @@ test_that("hyet_check returns errors", {
     prec = c("a", "b", "c", "d"))
   expect_error(hyet_check(hyet))
 
+})
+
+test_that("hyet_check returns NULL", {
+
   # all ok
   hyet2 <- tibble::tibble(
     dates = seq(from = as.POSIXct(0, origin = "2018-01-01"), length.out =  4,
