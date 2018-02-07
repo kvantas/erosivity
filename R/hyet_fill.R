@@ -32,6 +32,7 @@ hyet_fill <- function(hyet, time_step) {
 
   # check parameters
   hyet_check(hyet)
+
   if (! assertthat::is.count(time_step)) {
     stop("`time_step` must be a positive number.", call. = FALSE)
   }

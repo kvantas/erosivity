@@ -6,8 +6,8 @@ hyet_check <- function(hyet) {
     if (!(tibble::is.tibble(hyet) & (all(names(hyet) %in% c("dates", "prec"))) &
           lubridate::is.POSIXct(hyet$dates) & is.numeric(hyet$prec))) {
 
-      error_msg <- paste("`hyet` is not a valid hyetograph. Please use the",
-                         "function `hyet_create` to create one.")
+      error_msg <- paste("Error: `hyet` is not a valid hyetograph. Please use",
+                         "function `hyet_create`.")
       stop(error_msg, call. = FALSE)
 
       }
