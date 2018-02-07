@@ -11,4 +11,7 @@
 #' @name erosivity
 #' @aliases erosivity-package
 #' @docType package
+#'
+#' @importFrom rlang .data
+#'
 "_PACKAGE"

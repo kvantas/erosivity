@@ -16,7 +16,7 @@ a tibble with the variables \code{dates} and \code{prec}
 }
 \description{
 \code{hyet_fill} fills missing dates values in a hyetograph with NA values.
-This function returns an error if \code{hyet} is not a valid hyetograph or
+Returns an error if \code{hyet} is not a valid hyetograph or
 \code{time_step} is a not a numeric value.
 }
 \examples{

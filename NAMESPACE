@@ -2,4 +2,6 @@
 
 export(hyet_create)
 export(hyet_fill)
+export(hyet_remove_rep)
 export(hyet_window_sum)
+importFrom(rlang,.data)

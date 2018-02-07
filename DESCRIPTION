@@ -16,6 +16,7 @@ RoxygenNote: 6.0.1
 Imports: tibble(>= 1.4.1),
     lubridate (>= 1.7.1),
     assertthat (>= 0.2.0),
+    rlang (>= 0.1.6),
     dplyr (>= 0.7.4)
 Suggests: knitr (>= 1.17),
     rmarkdown (>= 1.8),

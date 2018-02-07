@@ -1,8 +1,7 @@
 #' Replace repeated, non-zero, precipitation values with NA
 #'
 #' \code{hyet_remove_rep} sets to \code{NA} repeated values precipitation values
-#' in a hyetograph. This function returns an error if \code{hyet} is not a valid
-#'  hyetograph.
+#' in a hyetograph. Returns an error if \code{hyet} is not a valid hyetograph.
 #'
 #' @param hyet a hyetograph from \code{hyet_create} function
 #'
@@ -28,7 +27,9 @@ hyet_remove_rep <- function(hyet) {
   hyet_check(hyet)
 
   # replace consecutively, non-zero, repeated values with NA
-  dplyr::mutate(hyet, prec = ifelse(c(FALSE, diff(prec) == 0 & prec[-1] != 0),
-                                    NA, prec))
+  dplyr::mutate(
+    hyet,
+    prec = ifelse(c(FALSE, diff(.data$prec) == 0 & .data$prec[-1] != 0),
+                  NA, .data$prec))
 
 }
