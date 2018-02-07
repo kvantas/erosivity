@@ -13,5 +13,6 @@
 #' @docType package
 #'
 #' @importFrom rlang .data
+#' @importFrom magrittr %>%
 #'
 "_PACKAGE"
