@@ -13,8 +13,9 @@ hyet_remove_rep(hyet)
 a tibble with the variables \code{dates} and \code{prec}
 }
 \description{
-\code{hyet_remove_rep} sets to \code{NA} repeated values precipitation values
-in a hyetograph. Returns an error if \code{hyet} is not a valid hyetograph.
+\code{hyet_remove_rep} sets to \code{NA} repeated values
+precipitation values in a hyetograph. Returns an error if \code{hyet} is not
+a valid hyetograph.
 }
 \examples{
 

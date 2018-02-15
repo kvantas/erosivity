@@ -1,17 +1,21 @@
-#' Create a hyetograph
+#' @title Create a hyetograph
 #'
-#' \code{hyet_create} uses precipitation and dates values to create a tibble
-#' that represents the distribution of rainfall over time. Returns an error if:
+#' @description  \code{hyet_create} uses precipitation and dates values to
+#' create a tibble that represents the distribution of rainfall over time.
+#' Returns an error if:
 #' \itemize{
 #'  \item \code{prec} and \code{date} values don't have the same length.
 #'  \item \code{prec} is not a numeric vector.
 #'  \item \code{date} is not a POSIXct (times) vector.
 #' }
 #'
-#' This function checks
-#' the validity of precipitation and date values and returns an error if: a)
-#' they don't have the same length, b) precipitation is not numeric or c) dates
-#' is not POSIXct.
+#' @details  This function checks the validity of precipitation and date values
+#' and returns an error if:
+#' \itemize{
+#'   \item{These vectors don't have the same length,}
+#'   \item{precipitation is not numeric or}
+#'   \item{dates  is not POSIXct.}
+#' }
 #'
 #' @param dates a numeric vector of precipitation values
 #' @param prec a POSIXct vector with dates values

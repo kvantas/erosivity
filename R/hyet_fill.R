@@ -1,11 +1,11 @@
-#' Fill a hyetograph with missing dates values
+#' @title Fill a hyetograph with missing dates values
 #'
-#' \code{hyet_fill} fills missing dates values in a hyetograph with NA values.
-#' Returns an error if \code{hyet} is not a valid hyetograph or
+#' @description  \code{hyet_fill} fills missing dates values in a hyetograph
+#' with NA values.  Returns an error if \code{hyet} is not a valid hyetograph or
 #' \code{time_step} is a not a numeric value.
 #'
 #' @param hyet a hyetograph from \code{hyet_create} function
-#' @param time_step a numeric value
+#' @param time_step hyetograph's time-step
 #'
 #' @return a tibble with the variables \code{dates} and \code{prec}
 #' @export hyet_fill

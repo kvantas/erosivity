@@ -1,10 +1,10 @@
-#' Replace repeated, non-zero, precipitation values with NA
+#' @title Replace repeated, non-zero, precipitation values with NA
 #'
-#' \code{hyet_remove_rep} sets to \code{NA} repeated values precipitation values
-#' in a hyetograph. Returns an error if \code{hyet} is not a valid hyetograph.
+#' @description \code{hyet_remove_rep} sets to \code{NA} repeated values
+#' precipitation values in a hyetograph. Returns an error if \code{hyet} is not
+#' a valid hyetograph.
 #'
 #' @param hyet a hyetograph from \code{hyet_create} function
-#'
 #'
 #' @return a tibble with the variables \code{dates} and \code{prec}
 #' @export hyet_remove_rep

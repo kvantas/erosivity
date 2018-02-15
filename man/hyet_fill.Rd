@@ -9,14 +9,14 @@ hyet_fill(hyet, time_step)
 \arguments{
 \item{hyet}{a hyetograph from \code{hyet_create} function}
 
-\item{time_step}{a numeric value}
+\item{time_step}{hyetograph's time-step}
 }
 \value{
 a tibble with the variables \code{dates} and \code{prec}
 }
 \description{
-\code{hyet_fill} fills missing dates values in a hyetograph with NA values.
-Returns an error if \code{hyet} is not a valid hyetograph or
+\code{hyet_fill} fills missing dates values in a hyetograph
+with NA values.  Returns an error if \code{hyet} is not a valid hyetograph or
 \code{time_step} is a not a numeric value.
 }
 \examples{

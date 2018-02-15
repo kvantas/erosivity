@@ -15,8 +15,9 @@ hyet_create(dates, prec)
 a tibble with the variables \code{dates} and \code{prec}
 }
 \description{
-\code{hyet_create} uses precipitation and dates values to create a tibble
-that represents the distribution of rainfall over time. Returns an error if:
+\code{hyet_create} uses precipitation and dates values to
+create a tibble that represents the distribution of rainfall over time.
+Returns an error if:
 \itemize{
  \item \code{prec} and \code{date} values don't have the same length.
  \item \code{prec} is not a numeric vector.
@@ -24,10 +25,13 @@ that represents the distribution of rainfall over time. Returns an error if:
 }
 }
 \details{
-This function checks
-the validity of precipitation and date values and returns an error if: a)
-they don't have the same length, b) precipitation is not numeric or c) dates
-is not POSIXct.
+This function checks the validity of precipitation and date values
+and returns an error if:
+\itemize{
+  \item{These vectors don't have the same length,}
+  \item{precipitation is not numeric or}
+  \item{dates  is not POSIXct.}
+}
 }
 \examples{
 

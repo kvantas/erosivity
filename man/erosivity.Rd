@@ -18,6 +18,14 @@ The data are retrieved from:
  \url{http://www.hydroscope.gr/}
 }
 
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/kvantas/erosivity}
+  \item Report bugs at \url{https://github.com/kvantas/erosivity/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Konstantinos Vantas \email{kon.vantas@gmail.com} (0000-0001-6387-8791)
 

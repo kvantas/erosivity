@@ -1,7 +1,8 @@
-#' Pipe hyetographs
+#' @title Pipe hyetographs
 #'
-#' Like dplyr, \code{erosivity} also uses the pipe function, \code{\%>\%} to
-#' turn function composition into a series of imperative statements.
+#' @description Like dplyr, \code{erosivity} also uses the pipe function,
+#' \code{\%>\%} to turn function composition into a series of imperative
+#' statements.
 #'
 #' @importFrom magrittr %>%
 #' @name %>%

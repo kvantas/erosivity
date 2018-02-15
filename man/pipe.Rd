@@ -7,8 +7,9 @@
 \item{lhs, rhs}{A hyetograph and a function to apply to it}
 }
 \description{
-Like dplyr, \code{erosivity} also uses the pipe function, \code{\%>\%} to
-turn function composition into a series of imperative statements.
+Like dplyr, \code{erosivity} also uses the pipe function,
+\code{\%>\%} to turn function composition into a series of imperative
+statements.
 }
 \examples{
 

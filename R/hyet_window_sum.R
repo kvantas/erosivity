@@ -1,7 +1,7 @@
-#' Calculate rolling window sum
+#' @title  Calculate rolling window sum
 #'
-#' \code{hyet_window_sum} computes the rolling sum of precipitation values.
-#' Returns an error if \code{prec} is not a numeric vector or
+#' @description \code{hyet_window_sum} computes the rolling sum of precipitation
+#' values.  Returns an error if \code{prec} is not a numeric vector or
 #' \code{rolling_window} not a positive integer.
 #'
 #'
@@ -12,7 +12,7 @@
 #' use R's base \code{rowSums} function with \code{na.rm = TRUE}.
 #'
 #' @return a numeric vector with summed precipitation values. These values are
-#' filled with NA at the end.
+#' filled with NAs at the end.
 #'
 #' @export hyet_window_sum
 #'

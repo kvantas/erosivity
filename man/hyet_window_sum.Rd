@@ -16,11 +16,11 @@ use R's base \code{rowSums} function with \code{na.rm = TRUE}.}
 }
 \value{
 a numeric vector with summed precipitation values. These values are
-filled with NA at the end.
+filled with NAs at the end.
 }
 \description{
-\code{hyet_window_sum} computes the rolling sum of precipitation values.
-Returns an error if \code{prec} is not a numeric vector or
+\code{hyet_window_sum} computes the rolling sum of precipitation
+values.  Returns an error if \code{prec} is not a numeric vector or
 \code{rolling_window} not a positive integer.
 }
 \examples{

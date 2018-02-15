@@ -51,3 +51,10 @@ hyet_break <- function(storm_time, six_hr){
   }
   hyet_breaks
 }
+
+#' window sum function without checks for use in `hyet_eros` function
+#' @noRd
+window_sum <- function(prec, rolling_window){
+  append(rowSums(stats::embed(prec, rolling_window), na.rm = TRUE),
+         rep(NA, rolling_window - 1))
+}
