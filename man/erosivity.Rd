@@ -8,7 +8,7 @@
 \alias{erosivity-package}
 \title{erosivity: Compute rainfall erosivity using precipitation data.}
 \description{
-This package computes rainfall erosivity from the Revised Universal Soil Loss
+This package computes rainfall erosivity, from the Revised Universal Soil Loss
 Equation (RUSLE), using precipitation time series.
 }
 \section{Data Sources}{
