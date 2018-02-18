@@ -5,7 +5,8 @@
 #'
 #' @param hyet a hyetograph from \code{hyet_create} function
 #' @param time_step hyetograph's time-step, integer
-#' @param three_hr_max should the function return
+#' @param three_hr_max if the function returns the maximum 3 hours
+#' precipitation, boolean
 #'
 #' @return a tibble with erosive rainstorms values
 #' @export hyet_erosivity
@@ -75,6 +76,7 @@ hyet_erosivity <- function(hyet, time_step, three_hr_max = FALSE) {
   }
 
   # calc EI and rain-storms statistics -----------------------------------------
+  hyet <- dplyr::group_by(hyet, .data$break_strorms)
 
 
   # return erosive events

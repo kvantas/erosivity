@@ -52,16 +52,9 @@ hyet_break <- function(storm_time, six_hr){
   hyet_breaks
 }
 
-#' window sum function without checks for use in `hyet_eros` function
-#' @noRd
-window_sum <- function(prec, rolling_window){
-  append(rowSums(stats::embed(prec, rolling_window), na.rm = TRUE),
-         rep(NA, rolling_window - 1))
-}
-
-
 #' calculate rainfall energy
 #' @noRd
 rain_energy <- function(intensity) {
+  if (is.null(intensity)) return(NA)
   0.29 * (1 - 0.72 * exp(-0.05 * intensity))
 }
