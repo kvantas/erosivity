@@ -1,6 +1,6 @@
 #' @title Create a hyetograph
 #'
-#' @description  \code{hyet_create} uses precipitation and dates values to
+#' @description  \code{hyet_create} uses precipitation and date values to
 #' create a tibble that represents the distribution of rainfall over time.
 #' Returns an error if:
 #' \itemize{
@@ -14,35 +14,35 @@
 #' \itemize{
 #'   \item{These vectors don't have the same length,}
 #'   \item{precipitation is not numeric or}
-#'   \item{dates  is not POSIXct.}
+#'   \item{date  is not POSIXct.}
 #' }
 #'
-#' @param dates a numeric vector of precipitation values
-#' @param prec a POSIXct vector with dates values
+#' @param date a numeric vector of precipitation values
+#' @param prec a POSIXct vector with date values
 #'
-#' @return a tibble with the variables \code{dates} and \code{prec}
+#' @return a tibble with the variables \code{date} and \code{prec}
 #' @export hyet_create
 #'
 #' @examples
 #'
-#' # create dates and precipitation values
-#' dates <- seq(from = as.POSIXct(0, origin = "2018-01-01"),
+#' # create date and precipitation values
+#' date <- seq(from = as.POSIXct(0, origin = "2018-01-01"),
 #'                   length.out =  100,
 #'                   by = "mins")
 #' set.seed(1)
 #' prec <-round(runif(100,0,10),1)
 #'
 #' # create hyetograph
-#' hyet <- hyet_create(dates, prec)
+#' hyet <- hyet_create(date, prec)
 #'
-hyet_create <- function(dates, prec) {
+hyet_create <- function(date, prec) {
 
-  if (!is.null(dates)) {
-    if (length(prec) != length(dates)) {
-      stop("Error: `prec` and  `dates` lenghts must be equal.",
+  if (!is.null(date)) {
+    if (length(prec) != length(date)) {
+      stop("Error: `prec` and  `date` lenghts must be equal.",
            call. = FALSE)
     }
-    if (!lubridate::is.POSIXct(dates)) {
+    if (!lubridate::is.POSIXct(date)) {
       stop("Error: `prec` must be a POSIXct vector.", call. = FALSE)
     }
   }
@@ -50,5 +50,5 @@ hyet_create <- function(dates, prec) {
     stop("Error: `prec` must be a numeric vector.", call. = FALSE)
   }
 
-  tibble::tibble(dates = dates, prec = prec)
+  tibble::tibble(date = date, prec = prec)
 }

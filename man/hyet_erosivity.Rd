@@ -4,14 +4,13 @@
 \alias{hyet_erosivity}
 \title{Compute raifall erosivity}
 \usage{
-hyet_erosivity(hyet, time_step, three_hr_max = FALSE)
+hyet_erosivity(hyet, time_step)
 }
 \arguments{
 \item{hyet}{a hyetograph from \code{hyet_create} function}
 
-\item{time_step}{hyetograph's time-step, integer}
-
-\item{three_hr_max}{should the function return}
+\item{time_step}{hyetograph's time-step, integer
+precipitation, boolean}
 }
 \value{
 a tibble with erosive rainstorms values

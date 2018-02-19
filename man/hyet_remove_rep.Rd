@@ -10,7 +10,7 @@ hyet_remove_rep(hyet)
 \item{hyet}{a hyetograph from \code{hyet_create} function}
 }
 \value{
-a tibble with the variables \code{dates} and \code{prec}
+a tibble with the variables \code{date} and \code{prec}
 }
 \description{
 \code{hyet_remove_rep} sets to \code{NA} repeated values
@@ -20,11 +20,11 @@ a valid hyetograph.
 \examples{
 
 # create a hyetograph
-dates <- seq(from = as.POSIXct(0, origin = "2018-01-01"),
+date <- seq(from = as.POSIXct(0, origin = "2018-01-01"),
                   length.out =  11,
                   by = "30 mins")
 prec <- c(0.001, 0.2, 0.5, 0.21, 0.21, 0.21, 0.21, 0.21, 0.0005, 0, 0)
-hyet <- hyet_create(dates, prec)
+hyet <- hyet_create(date, prec)
 
 # remove repeated values
 hyet_remove_rep(hyet)

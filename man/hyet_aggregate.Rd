@@ -4,12 +4,12 @@
 \alias{hyet_aggregate}
 \title{Aggregate a hyetofraph using a time step}
 \usage{
-hyet_aggregate(hyet, time_step)
+hyet_aggregate(hyet, time_step_minutes)
 }
 \arguments{
 \item{hyet}{a hyetograph from \code{hyet_create} function}
 
-\item{time_step}{the time step value in minutes}
+\item{time_step_minutes}{the time step value in minutes}
 }
 \value{
 a tibble with the aggregated hyetograph

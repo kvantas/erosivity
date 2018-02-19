@@ -13,7 +13,7 @@ test_that("hyet_fill fills time series", {
   time_step <- 10
 
   hyet <- tibble::tibble(
-    dates = seq(from = as.POSIXct(0, origin = "2018-01-01"), length.out =  100,
+    date = seq(from = as.POSIXct(0, origin = "2018-01-01"), length.out =  100,
                 by = paste(time_step, "mins")),
     prec = runif(100, 0, 5))
 
@@ -23,8 +23,8 @@ test_that("hyet_fill fills time series", {
   # fill time series
   hyet_filled <- hyet_fill(hyet_miss, 10)
 
-  # dates must match
-  expect_equal(object = hyet_filled$dates, expected = hyet$dates)
+  # date must match
+  expect_equal(object = hyet_filled$date, expected = hyet$date)
 
 
 })

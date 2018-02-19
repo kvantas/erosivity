@@ -4,18 +4,18 @@
 \alias{hyet_create}
 \title{Create a hyetograph}
 \usage{
-hyet_create(dates, prec)
+hyet_create(date, prec)
 }
 \arguments{
-\item{dates}{a numeric vector of precipitation values}
+\item{date}{a numeric vector of precipitation values}
 
-\item{prec}{a POSIXct vector with dates values}
+\item{prec}{a POSIXct vector with date values}
 }
 \value{
-a tibble with the variables \code{dates} and \code{prec}
+a tibble with the variables \code{date} and \code{prec}
 }
 \description{
-\code{hyet_create} uses precipitation and dates values to
+\code{hyet_create} uses precipitation and date values to
 create a tibble that represents the distribution of rainfall over time.
 Returns an error if:
 \itemize{
@@ -30,19 +30,19 @@ and returns an error if:
 \itemize{
   \item{These vectors don't have the same length,}
   \item{precipitation is not numeric or}
-  \item{dates  is not POSIXct.}
+  \item{date  is not POSIXct.}
 }
 }
 \examples{
 
-# create dates and precipitation values
-dates <- seq(from = as.POSIXct(0, origin = "2018-01-01"),
+# create date and precipitation values
+date <- seq(from = as.POSIXct(0, origin = "2018-01-01"),
                   length.out =  100,
                   by = "mins")
 set.seed(1)
 prec <-round(runif(100,0,10),1)
 
 # create hyetograph
-hyet <- hyet_create(dates, prec)
+hyet <- hyet_create(date, prec)
 
 }

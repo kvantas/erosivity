@@ -21,12 +21,12 @@ test_that("hyet_window_sum returns summed values", {
   expect_equal(storm_time[which(breaks)], 360 + 5)
 
   # a rainstorm of one day duration without breaks
-  storm_time <- seq(30, 24*60, 30)
+  storm_time <- seq(30, 24 * 60, 30)
   six_hr <- runif(48, 1.27, 1.5)
   expect_false(any(hyet_break(storm_time, six_hr)))
 
   # a rainstorm of one day duration with 3 breaks
-  storm_time <- seq(30, 24*60, 30)
+  storm_time <- seq(30, 24 * 60, 30)
   six_hr <- rep(1, 48)
 
   brk_index <- which(hyet_break(storm_time, six_hr))

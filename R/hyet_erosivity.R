@@ -5,7 +5,6 @@
 #'
 #' @param hyet a hyetograph from \code{hyet_create} function
 #' @param time_step hyetograph's time-step, integer
-#' @param three_hr_max if the function returns the maximum 3 hours
 #' precipitation, boolean
 #'
 #' @return a tibble with erosive rainstorms values
@@ -22,31 +21,53 @@
 #'  hyet_fill(time_step) %>%
 #'  hyet_erosivity(time_step)
 #'
-hyet_erosivity <- function(hyet, time_step, three_hr_max = FALSE) {
+hyet_erosivity <- function(hyet, time_step) {
 
   # check values ---------------------------------------------------------------
   if (!(time_step %in%  c(5, 10, 15, 30))) {
-    stop("time_step must have one of the values: 5, 10, 15 or 30 minutes.",
+    stop("`time_step` must have one of the values: 5, 10, 15 or 30 minutes.",
          call. = FALSE)
   }
   hyet_check(hyet)
 
-  # create six-hours-rolling-window sum ----------------------------------------
+  # calc rolling-window sums ---------------------------------------------------
   step_per60 <- 60 / time_step
+
+  # six hours sum
   hyet <- dplyr::mutate(hyet,
                         six_hr = hyet_window_sum(.data$prec, 6 * step_per60))
 
-  # extract rain-storms  --------------------------------------------------------
+  # 15 minutes sum
+  if (time_step == 5) {
+    hyet <- dplyr::mutate(hyet,
+                          fifteen_minutes = hyet_window_sum(.data$prec, 3))
+  } else {
+    hyet <- dplyr::mutate(hyet,
+                          fifteen_minutes = NA)
+  }
+
+  # 30 minutes sum
+  if (time_step != 30) {
+    step_per30 <- 30 / time_step
+    hyet <-
+      dplyr::mutate(hyet,
+                    thirty_minutes = hyet_window_sum(.data$prec, step_per30))
+  } else {
+    hyet <-  dplyr::mutate(hyet,
+                           thirty_minutes = .data$prec)
+  }
+
+  # extract rain-storms  -------------------------------------------------------
   hyet <- dplyr::filter(hyet, .data$prec > 0)
 
-  if(NROW(hyet) == 0) {
+  if (NROW(hyet) == 0) {
     stop("All precipitation values are zero or NA", call. = FALSE)
   }
 
   # use the 6-hours-no-precipitation rule to extract rain-storms
   hyet <-
     dplyr::mutate(hyet,
-                  dif = c(time_step, diff(.data$dates, units = "mins")),
+                  dif = c(time_step, diff(.data$date, units = "mins")),
                   new_storm = c(TRUE, utils::tail(.data$dif > 360, -1)),
                   storm = cumsum(.data$new_storm))
 
@@ -57,28 +78,30 @@ hyet_erosivity <- function(hyet, time_step, three_hr_max = FALSE) {
                   storm_time = cumsum(.data$dif) - .data$dif[1],
                   break_strorms = hyet_break(.data$storm_time, .data$six_hr))
 
-  # ungroup storms and extract splitted storms
+  # ungroup storms and re-extract  storms
   hyet <- dplyr::ungroup(hyet)
   hyet <-
     dplyr::mutate(hyet,
                   extract_storm = cumsum(.data$new_storm | .data$break_strorms))
 
-  # calculate rain-storms erosivity --------------------------------------------
-
   # calulate rainfall energy
   hyet <- dplyr::mutate(hyet,
                         energy = rain_energy(.data$prec * step_per60))
 
-  # calcuate precipitation rolling sum of 15 minutes if time-step is 5 minutes
-  if (time_step == 5) {
-    hyet <- dplyr::mutate(hyet,
-                          fifteen_minutes = hyet_window_sum(.data$prec, 3))
-  }
-
   # calc EI and rain-storms statistics -----------------------------------------
-  hyet <- dplyr::group_by(hyet, .data$break_strorms)
 
+  # group again storms
+  hyet <- dplyr::group_by(hyet, .data$extract_storm)
 
-  # return erosive events
-  NULL
+  # return EI values
+  dplyr::summarise(hyet,
+                   start_date = min(.data$date),
+                   end_date  = max(.data$date),
+                   duration = difftime(.data$end_date, .data$start_date,
+                                       units = "mins") + time_step,
+                   cum_prec = sum(.data$prec),
+                   max_i30 = max(.data$thirty_minutes) * 2,
+                   max_prec_15_min = max(.data$fifteen_minutes),
+                   max_prec = max(.data$prec),
+                   erosivity = sum(.data$energy * .data$prec) * .data$max_i30)
 }

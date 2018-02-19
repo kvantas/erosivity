@@ -6,7 +6,7 @@
 \title{Five minutes precipitation time series}
 \format{A data frame with 1679308 rows and 13 variables:
 \describe{
-  \item{dates}{The time series' date}
+  \item{date}{The time series' date}
   \item{prec}{precipitation, in mm}
 }}
 \source{
@@ -18,6 +18,6 @@ prec5min
 \description{
 The time series come from the Greek National Data Bank for Hydrological
 and Meteorological Information, Hydroscope. The unit of measurement of
-precipitation is in mm and the time scale is five minutes.
+precipitation is in mm and the time step is five minutes.
 }
 \keyword{datasets}
