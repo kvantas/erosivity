@@ -42,5 +42,5 @@ test_that("hyet_erosivity returns correct events for a give rainstorm", {
 
   expect_equal(eros_10min$max_i30, 58.8)
   expect_equal(eros_10min$cum_prec, 46.4)
-  expect_equivalent(eros_10min$erosivity, 630.238786)
+  expect_equal(eros_10min$erosivity, 630.238786)
 })
