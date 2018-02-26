@@ -1,5 +1,5 @@
-Package: erosivity
 Type: Package
+Package: erosivity
 Title: Calculation of Rainfall Erosivity Factor from RUSLE 
 Version: 0.0.1
 Authors@R: person("Konstantinos", "Vantas", role = c("aut", "cre"),
@@ -11,17 +11,21 @@ Description: Computes the rainfall erosivity R factor from the Revised
 License: MIT + file LICENSE
 URL: https://github.com/kvantas/erosivity
 BugReports: https://github.com/kvantas/erosivity/issues             
-Depends: R (>= 3.4.0)
-Encoding: UTF-8
-LazyData: true
-RoxygenNote: 6.0.1
-Imports: tibble(>= 1.4.1),
-    magrittr (>= 1.5),
-    lubridate (>= 1.7.1),
+Depends: 
+    R (>= 3.4.0)
+Imports: 
     assertthat (>= 0.2.0),
+    dplyr (>= 0.7.4),
+    lubridate (>= 1.7.1),
+    magrittr (>= 1.5),
     rlang (>= 0.1.6),
-    dplyr (>= 0.7.4)
-Suggests: knitr (>= 1.17),
+    tibble (>= 1.4.1)
+Suggests: 
+    hydroscoper (>= 0.1),
+    knitr (>= 1.17),
     rmarkdown (>= 1.8),
     testthat (>= 1.0.2)
 VignetteBuilder: knitr
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1

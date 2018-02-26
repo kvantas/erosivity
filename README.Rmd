@@ -19,6 +19,7 @@ knitr::opts_chunk$set(
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/kvantas/erosivity?branch=master&svg=true)](https://ci.appveyor.com/project/kvantas/erosivity)
 [![Travis-CI Build Status](https://travis-ci.org/kvantas/erosivity.svg?branch=master)](https://travis-ci.org/kvantas/erosivity)
 [![codecov](https://codecov.io/github/kvantas/erosivity/branch/master/graphs/badge.svg)](https://codecov.io/gh/kvantas/erosivity) 
+[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 
 The goal of `erosivity` is to compute the rainfall erosivity using precipitation data.
 
