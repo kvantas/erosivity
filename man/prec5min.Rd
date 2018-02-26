@@ -16,8 +16,9 @@
 prec5min
 }
 \description{
-The time series come from the Greek National Data Bank for Hydrological
-and Meteorological Information, Hydroscope. The unit of measurement of
-precipitation is in mm and the time step is five minutes.
+This time series come from the a wether station from the Greek National Data
+Bank for Hydrological and Meteorological Information, Hydroscope.
+Precipitation's units of measurement is in mm and the time step is five
+minutes.
 }
 \keyword{datasets}

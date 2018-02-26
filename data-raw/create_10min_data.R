@@ -9,7 +9,8 @@ prec10min <- readr::read_delim(
     readr::col_character(),
     readr::col_datetime(format = tm_format),
     readr::col_double()
-  )
+  ),
+  skip = 1
 )
 
 prec10min$station_id <- NULL

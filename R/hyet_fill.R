@@ -39,8 +39,8 @@ hyet_fill <- function(hyet, time_step) {
 
   # create an empty time series
   empty_ts <- tibble::tibble(date = seq(
-    from = min(hyet$date),
-    to = max(hyet$date),
+    from = min(hyet$date, na.rm = TRUE),
+    to = max(hyet$date, na.rm = TRUE),
     by = paste0(time_step, " mins")
   ))
   # merge time series

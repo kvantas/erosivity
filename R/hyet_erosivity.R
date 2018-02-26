@@ -7,8 +7,11 @@
 #' @param time_step hyetograph's time-step, integer
 #' precipitation, boolean
 #'
-#' @return a tibble with erosive rainstorms values
+#' @return a tibble with erosive rainstorms' values
 #' @export hyet_erosivity
+#'
+#' @note In \code{hyet} must not contain missing dates. Please use the
+#' \code{hyet_fill} function before using \code{prec_eros}.
 #'
 #' @examples
 #'
@@ -77,21 +80,25 @@ hyet_erosivity <- function(hyet, time_step) {
   }
 
   # use the 6-hours-no-precipitation rule to extract rain-storms
-  hyet <-
-    dplyr::mutate(
-      hyet,
-      dif = c(time_step, diff(.data$date, units = "mins")),
-      new_storm = c(TRUE, utils::tail(.data$dif > 360, -1)),
-      storm = cumsum(.data$new_storm)
+  hyet <- dplyr::mutate(
+    hyet,
+    dif = c(time_step, diff(.data$date, units = "mins")),
+    new_storm = c(TRUE, utils::tail(.data$dif > 360, -1)),
+    storm = cumsum(.data$new_storm)
+  )
+
+  # group storms
+  hyet <- dplyr::group_by(hyet, .data$storm)
+
+  # calculate breaks using the 1,27 mm rule
+  hyet <- dplyr::mutate(
+    hyet,
+      break_storms = c(FALSE, utils::head(.data$six_hr < 1.27, -1))
     )
 
-  # split rain-storms using the six-hour-less-than-1,27 mm rule
-  hyet <- dplyr::group_by(hyet, .data$storm)
-  hyet <-
-    dplyr::mutate(
-      hyet,
-      storm_time = cumsum(.data$dif) - .data$dif[1],
-      break_strorms = hyet_break(.data$storm_time, .data$six_hr)
+  # replace NA values of break_storms with FALSE
+  hyet$break_storms <- dplyr::if_else(
+    is.na(hyet$break_storms), FALSE, hyet$break_storms
     )
 
   # ungroup storms and re-extract  storms
@@ -99,7 +106,7 @@ hyet_erosivity <- function(hyet, time_step) {
   hyet <-
     dplyr::mutate(
       hyet,
-      extract_storm = cumsum(.data$new_storm | .data$break_strorms)
+      extract_storm = cumsum(.data$new_storm | .data$break_storms)
     )
 
   # calulate rainfall energy
@@ -110,7 +117,7 @@ hyet_erosivity <- function(hyet, time_step) {
 
   # calc EI and rain-storms statistics -----------------------------------------
 
-  # group again storms
+  # group using breaked storms
   hyet <- dplyr::group_by(hyet, .data$extract_storm)
 
   # return EI values

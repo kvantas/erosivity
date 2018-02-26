@@ -8,7 +8,7 @@
 #' @param prec a vector with precipitation values
 #' @param rolling_window the rolling window as a number of time steps.
 #'
-#' Computing time depends on \code{rolling_window}. \code{hyet_window_sum}
+#' @note Computing time depends on \code{rolling_window}. \code{hyet_window_sum}
 #' use R's base \code{rowSums} function with \code{na.rm = TRUE}.
 #'
 #' @return a numeric vector with summed precipitation values. These values are

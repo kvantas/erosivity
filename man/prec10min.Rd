@@ -19,7 +19,8 @@ Spatial and temporal variability of rainfall erosivity factor for Switzerland.
 prec10min
 }
 \description{
-The time series come from a weather station in Switzerland. The units of
-measurement of precipitation is in mm and the time step is five minutes.
+This time series come from a weather station in Switzerland (station ID, HER).
+Precipitation's units of measurement is in mm and the time step is ten
+minutes.
 }
 \keyword{datasets}

@@ -19,7 +19,7 @@
 #' Precipitation's units of measurement is in mm and the time step is ten
 #' minutes.
 #'
-#' @format A data frame with 52,116 rows and 2 variables:
+#' @format A data frame with 52,115 rows and 2 variables:
 #' \describe{
 #'   \item{date}{The time series' dates}
 #'   \item{prec}{precipitation, in mm}
