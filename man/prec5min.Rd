@@ -4,9 +4,9 @@
 \name{prec5min}
 \alias{prec5min}
 \title{Five minutes precipitation time series}
-\format{A data frame with 1679308 rows and 13 variables:
+\format{A data frame with 48,209 rows and 2 variables:
 \describe{
-  \item{date}{The time series' date}
+  \item{date}{The time series' dates}
   \item{prec}{precipitation, in mm}
 }}
 \source{

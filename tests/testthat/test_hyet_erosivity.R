@@ -29,3 +29,10 @@ test_that("hyet_erosivity returns a tibble", {
   expect_is(hyet_erosivity(hyet_aggregate(prec5min, 30), 30), "tbl_df")
 
 })
+
+test_that("hyet_erosivity returns correct events", {
+eros_10min <- hyet_erosivity(prec10min, 10)
+
+eros_10min <- subset(eros_10min, cum_prec >= 12.7)
+
+})
