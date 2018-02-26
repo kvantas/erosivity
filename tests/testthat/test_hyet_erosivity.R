@@ -20,13 +20,6 @@ test_that("hyet_erosivity returns error if all precipitation values are zero", {
   expect_error(hyet_erosivity(hyet_create(date, prec), 5))
 })
 
-test_that("hyet_erosivity returns a tibble", {
-
-  # NA or NULL value return NA
-  expect_is(hyet_erosivity(prec5min, 5), "tbl_df")
-  expect_is(hyet_erosivity(hyet_aggregate(prec5min, 15), 15), "tbl_df")
-  expect_is(hyet_erosivity(hyet_aggregate(prec5min, 30), 30), "tbl_df")
-})
 
 test_that("hyet_erosivity returns correct events for a give rainstorm", {
   hyet <- hyet_fill(prec10min, 10)
@@ -36,10 +29,27 @@ test_that("hyet_erosivity returns correct events for a give rainstorm", {
     date >= "2010-01-17 00:00:00 UTC" & date <= "2010-01-18 14:00:00 UTC"
   )
 
+  # expect a tibble
+  expect_is(hyet_erosivity(test1, 10), "tbl_df")
+
   eros_10min <- hyet_erosivity(test1, 10)
 
+  # expected values
   eros_10min <- subset(eros_10min, cum_prec >= 12.7)
+  expect_true(nrow(eros_10min) == 1)
 
-  expect(nrow(eros_10min) == 1)
+  skip_on_cran()
+  skip_on_appveyor()
+  skip_on_travis()
+  expect_equal(eros_10min$max_i30, 58.8)
+
+  skip_on_cran()
+  skip_on_appveyor()
+  skip_on_travis()
+  expect_equal(eros_10min$cum_prec, 46.4)
+
+  skip_on_cran()
+  skip_on_appveyor()
+  skip_on_travis()
   expect_equal(round(eros_10min$erosivity), 630)
 })
