@@ -40,7 +40,6 @@ test_that("hyet_erosivity returns correct events for a give rainstorm", {
 
   eros_10min <- subset(eros_10min, cum_prec >= 12.7)
 
-  expect_equal(eros_10min$max_i30, 58.8)
-  expect_equal(eros_10min$cum_prec, 46.4)
-  expect_equal(eros_10min$erosivity, 630.238786)
+  expect(nrow(eros_10min) == 1)
+  expect_equal(round(eros_10min$erosivity), 630)
 })
