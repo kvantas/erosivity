@@ -4,12 +4,12 @@ hyet_check <- function(hyet) {
   # check for expected names and values
   suppressWarnings(
     if (!(tibble::is.tibble(hyet) & (all(names(hyet) %in% c("date", "prec"))) &
-          lubridate::is.POSIXct(hyet$date) & is.numeric(hyet$prec))) {
-
-      error_msg <- paste("Error: `hyet` is not a valid hyetograph. Please use",
-                         "function `hyet_create`.")
+      lubridate::is.POSIXct(hyet$date) & is.numeric(hyet$prec))) {
+      error_msg <- paste(
+        "Error: `hyet` is not a valid hyetograph. Please use",
+        "function `hyet_create`."
+      )
       stop(error_msg, call. = FALSE)
-
     }
   )
 }
@@ -17,7 +17,7 @@ hyet_check <- function(hyet) {
 #' find breaks to divide rainstorms using the six-hours < 1.27 mm precipitation
 #' rule from hyetographs time and six hours window sum
 #' @noRd
-hyet_break <- function(storm_time, six_hr){
+hyet_break <- function(storm_time, six_hr) {
 
   # find duration in storm_time
   duration <- utils::tail(storm_time, 1)
@@ -37,13 +37,13 @@ hyet_break <- function(storm_time, six_hr){
 
   # add a break if a six hours cumulative value < 1.27 is found
   repeat {
-    if (i > n_values) break ()
+    if (i > n_values) break()
     if (six_hr[i] < 1.27) {
       breaks <- breaks + 1
       # find which index corresponds to the next break
       i <- which(storm_time > breaks * 360)[1]
       # add a break only if can be within the storms time values
-      if (is.na(i)) break ()
+      if (is.na(i)) break()
       hyet_breaks[i] <- TRUE
     } else {
       i <- i + 1

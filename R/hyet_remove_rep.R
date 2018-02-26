@@ -30,6 +30,7 @@ hyet_remove_rep <- function(hyet) {
   dplyr::mutate(
     hyet,
     prec = ifelse(c(FALSE, diff(.data$prec) == 0 & .data$prec[-1] != 0),
-                  NA, .data$prec))
-
+      NA, .data$prec
+    )
+  )
 }

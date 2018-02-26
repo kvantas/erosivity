@@ -36,11 +36,12 @@
 #' hyet <- hyet_create(date, prec)
 #'
 hyet_create <- function(date, prec) {
-
   if (!is.null(date)) {
     if (length(prec) != length(date)) {
-      stop("Error: `prec` and  `date` lenghts must be equal.",
-           call. = FALSE)
+      stop(
+        "Error: `prec` and  `date` lenghts must be equal.",
+        call. = FALSE
+      )
     }
     if (!lubridate::is.POSIXct(date)) {
       stop("Error: `prec` must be a POSIXct vector.", call. = FALSE)

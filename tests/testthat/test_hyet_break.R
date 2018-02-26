@@ -31,5 +31,4 @@ test_that("hyet_window_sum returns summed values", {
 
   brk_index <- which(hyet_break(storm_time, six_hr))
   expect_equal(storm_time[brk_index], seq(360, 1090, 360) + 30)
-
 })

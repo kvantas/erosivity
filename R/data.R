@@ -27,5 +27,5 @@
 #' @source Meusburger, K., Steel, A., Panagos, P., Montanarella, L., Alewell, C.
 #' Spatial and temporal variability of rainfall erosivity factor for Switzerland.
 #'  Hydrology and Earth System Sciences, 16, 167-177, 2012, URL:
-#'\url{https://esdac.jrc.ec.europa.eu/content/spatial-and-temporal-variability-rainfall-erosivity-factor-switzerland}
+#' \url{https://esdac.jrc.ec.europa.eu/content/spatial-and-temporal-variability-rainfall-erosivity-factor-switzerland}
 "prec10min"

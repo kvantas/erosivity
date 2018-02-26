@@ -33,15 +33,16 @@ hyet_fill <- function(hyet, time_step) {
   # check parameters
   hyet_check(hyet)
 
-  if (! assertthat::is.count(time_step)) {
+  if (!assertthat::is.count(time_step)) {
     stop("`time_step` must be a positive number.", call. = FALSE)
   }
 
   # create an empty time series
-  empty_ts <- tibble::tibble(date = seq(from = min(hyet$date),
-                                         to   = max(hyet$date),
-                                         by   = paste0(time_step, " mins")))
+  empty_ts <- tibble::tibble(date = seq(
+    from = min(hyet$date),
+    to = max(hyet$date),
+    by = paste0(time_step, " mins")
+  ))
   # merge time series
   dplyr::left_join(empty_ts, hyet, by = "date")
-
 }

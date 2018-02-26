@@ -1,10 +1,8 @@
 context("hyet_fill related tests")
 
 test_that("hyet_fill returns error", {
-
   time_step <- "a"
   expect_error(hyet_fill(prec5min, time_step))
-
 })
 
 test_that("hyet_fill fills time series", {
@@ -13,18 +11,19 @@ test_that("hyet_fill fills time series", {
   time_step <- 10
 
   hyet <- tibble::tibble(
-    date = seq(from = as.POSIXct(0, origin = "2018-01-01"), length.out =  100,
-                by = paste(time_step, "mins")),
-    prec = runif(100, 0, 5))
+    date = seq(
+      from = as.POSIXct(0, origin = "2018-01-01"), length.out = 100,
+      by = paste(time_step, "mins")
+    ),
+    prec = runif(100, 0, 5)
+  )
 
   # remove some records
-  hyet_miss <-  hyet[-c(2:10, 14, 31, 70:80), ]
+  hyet_miss <- hyet[-c(2:10, 14, 31, 70:80), ]
 
   # fill time series
   hyet_filled <- hyet_fill(hyet_miss, 10)
 
   # date must match
   expect_equal(object = hyet_filled$date, expected = hyet$date)
-
-
 })

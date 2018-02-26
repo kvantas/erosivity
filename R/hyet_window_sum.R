@@ -41,6 +41,8 @@ hyet_window_sum <- function(prec, rolling_window) {
     stop("`rolling_window` must be a positive integer.", call. = FALSE)
   }
 
-  append(rowSums(stats::embed(prec, rolling_window), na.rm = TRUE),
-         rep(NA, rolling_window - 1))
+  append(
+    rowSums(stats::embed(prec, rolling_window), na.rm = TRUE),
+    rep(NA, rolling_window - 1)
+  )
 }
