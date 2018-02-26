@@ -28,7 +28,7 @@
 #' rolling_window <- 6
 #'
 #' # compute values
-#' hyet_window_sum(hyet$prec, rolling_window)
+#' roll_sums <- hyet_window_sum(hyet$prec, rolling_window)
 hyet_window_sum <- function(prec, rolling_window) {
 
   # check prec values

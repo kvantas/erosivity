@@ -9,10 +9,7 @@ hyet_window_sum(prec, rolling_window)
 \arguments{
 \item{prec}{a vector with precipitation values}
 
-\item{rolling_window}{the rolling window as a number of time steps.
-
-Computing time depends on \code{rolling_window}. \code{hyet_window_sum}
-use R's base \code{rowSums} function with \code{na.rm = TRUE}.}
+\item{rolling_window}{the rolling window as a number of time steps.}
 }
 \value{
 a numeric vector with summed precipitation values. These values are
@@ -22,6 +19,10 @@ filled with NAs at the end.
 \code{hyet_window_sum} computes the rolling sum of precipitation
 values.  Returns an error if \code{prec} is not a numeric vector or
 \code{rolling_window} not a positive integer.
+}
+\note{
+Computing time depends on \code{rolling_window}. \code{hyet_window_sum}
+use R's base \code{rowSums} function with \code{na.rm = TRUE}.
 }
 \examples{
 
@@ -35,5 +36,5 @@ hyet <- hyet_fill(prec5min, 5)
 rolling_window <- 6
 
 # compute values
-hyet_window_sum(hyet$prec, rolling_window)
+roll_sums <- hyet_window_sum(hyet$prec, rolling_window)
 }

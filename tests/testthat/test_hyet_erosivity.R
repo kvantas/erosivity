@@ -29,12 +29,12 @@ test_that("hyet_erosivity returns a tibble", {
 })
 
 test_that("hyet_erosivity returns correct events for a give rainstorm", {
-
   hyet <- hyet_fill(prec10min, 10)
 
   test1 <- dplyr::filter(
     hyet,
-    date >= "2010-01-17 00:00:00 UTC" & date <= "2010-01-18 14:00:00 UTC")
+    date >= "2010-01-17 00:00:00 UTC" & date <= "2010-01-18 14:00:00 UTC"
+  )
 
   eros_10min <- hyet_erosivity(test1, 10)
 
@@ -43,5 +43,4 @@ test_that("hyet_erosivity returns correct events for a give rainstorm", {
   expect_equal(eros_10min$max_i30, 58.8)
   expect_equal(eros_10min$cum_prec, 46.4)
   expect_equivalent(eros_10min$erosivity, 630.238786)
-
 })

@@ -93,13 +93,13 @@ hyet_erosivity <- function(hyet, time_step) {
   # calculate breaks using the 1,27 mm rule
   hyet <- dplyr::mutate(
     hyet,
-      break_storms = c(FALSE, utils::head(.data$six_hr < 1.27, -1))
-    )
+    break_storms = c(FALSE, utils::head(.data$six_hr < 1.27, -1))
+  )
 
   # replace NA values of break_storms with FALSE
   hyet$break_storms <- dplyr::if_else(
     is.na(hyet$break_storms), FALSE, hyet$break_storms
-    )
+  )
 
   # ungroup storms and re-extract  storms
   hyet <- dplyr::ungroup(hyet)

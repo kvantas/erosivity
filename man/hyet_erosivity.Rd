@@ -13,7 +13,7 @@ hyet_erosivity(hyet, time_step)
 precipitation, boolean}
 }
 \value{
-a tibble with erosive rainstorms values
+a tibble with erosive rainstorms' values
 }
 \description{
 \code{prec_eros} computes erosivity values using an hyetograph
