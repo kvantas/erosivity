@@ -2,7 +2,7 @@
 % Please edit documentation in R/hyet_aggregate.R
 \name{hyet_aggregate}
 \alias{hyet_aggregate}
-\title{Aggregate a hyetofraph using a time step}
+\title{Aggregate a hyetograph using a time step}
 \usage{
 hyet_aggregate(hyet, time_step_minutes)
 }

@@ -1,4 +1,4 @@
-#' @title Aggregate a hyetofraph using a time step
+#' @title Aggregate a hyetograph using a time step
 #'
 #' @description \code{hyet_aggregate} uses a predefined time step value to
 #' aggregate precipitation records in a hyetograph
