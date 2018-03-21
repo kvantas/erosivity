@@ -20,8 +20,8 @@ a tibble with erosive rainstorms' values
 from the \code{hyet_create} function and its timestep.
 }
 \note{
-In \code{hyet} must not contain missing dates. Please use the
-\code{hyet_fill} function before using \code{prec_eros}.
+\code{hyet} must not contain missing dates. Please use the
+\code{hyet_fill} function before \code{prec_eros}.
 }
 \examples{
 

@@ -10,8 +10,8 @@
 #' @return a tibble with erosive rainstorms' values
 #' @export hyet_erosivity
 #'
-#' @note In \code{hyet} must not contain missing dates. Please use the
-#' \code{hyet_fill} function before using \code{prec_eros}.
+#' @note \code{hyet} must not contain missing dates. Please use the
+#' \code{hyet_fill} function before \code{prec_eros}.
 #'
 #' @examples
 #'

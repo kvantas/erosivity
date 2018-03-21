@@ -21,7 +21,6 @@ test_that("hyet_erosivity returns error if all precipitation values are zero", {
 })
 
 test_that("hyet_erosivity returns tibbles for all allowed time steps", {
-
   hyet <- hyet_fill(prec5min, 10)
 
   hyet <- dplyr::filter(
@@ -33,7 +32,6 @@ test_that("hyet_erosivity returns tibbles for all allowed time steps", {
   expect_is(hyet_erosivity(hyet_aggregate(hyet, 10), 10), "tbl_df")
   expect_is(hyet_erosivity(hyet_aggregate(hyet, 15), 15), "tbl_df")
   expect_is(hyet_erosivity(hyet_aggregate(hyet, 30), 30), "tbl_df")
-
 })
 
 test_that("hyet_erosivity returns correct events for a given rainstorm", {

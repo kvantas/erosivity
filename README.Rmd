@@ -26,26 +26,6 @@ knitr::opts_chunk$set(
 
 `erosivity` [@vantas2018] is an R package  [@CRAN] that can be used to compute the rainfall erosivity, $EI$, from the Universal Soil Loss Equation [@renard1991rusle].
 
-## Universal Soil Loss Equation (USLE)
-
-From @USLE:
-
-The USLE predicts the long-term average annual rate of erosion on a field slope based on rainfall pattern, soil type, topography, crop system and management practices. USLE only predicts the amount of soil loss that results from sheet or rill erosion on a single slope and does not account for additional soil losses that might occur from gully, wind or tillage erosion. This erosion model was created for use in selected cropping and management systems, but is also applicable to non-agricultural conditions such as construction sites. The USLE can be used to compare soil losses from a particular field with a specific crop and management system to "tolerable soil loss" rates. Alternative management and crop systems may also be evaluated to determine the adequacy of conservation measures in farm planning. 
-
-Five major factors are used to calculate the soil loss for a given site. Each factor is the numerical estimate of a specific condition that affects the severity of soil erosion at a particular location. The erosion values reflected by these factors can vary considerably due to varying weather conditions. Therefore, the values obtained from the USLE more accurately represent long-term averages. 
-
-$$A = R \cdot K \cdot LS \cdot C \cdot P$$
-Where: 
-
- 1. $A$ represents the potential long-term average annual soil loss $\frac{t}{ha}$.
- 2. $R$ is the rainfall and runoff factor $\frac{MJ \cdot mm}{ha \cdot h \cdot yr})$
- 3. $K$ is the soil erodibility factor for a particular soil ((${t \cdot ha \cdot h} \over {ha \cdot MJ \cdot mm}$))
- 4. $LS$ is the slope length-gradient factor.
- 5. $C$ is the crop/vegetation and management factor.
- 6. $P$ is the support practice factor.
-
-USLE and its later improvements are empirical models which in order to be applied to different places around the world, require the determination of the appropriate values of the above six different factors.  Although land data, terrain and land uses may be used to calculate the values of $K$, $C$, $L$ and $S$, long-term rainfall intensity data are required for the estimation of $R$ and $P$ [@Renard1994].
-
 ## Installation
 
 You can install the development version from GitHub with:
