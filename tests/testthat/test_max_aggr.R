@@ -13,5 +13,4 @@ test_that("max_aggr return correct values", {
 
   expect_equal(max_aggr(hyet, 5), sum(26:30))
   expect_equal(max_aggr(hyet, 10), sum(21:30))
-
 })
