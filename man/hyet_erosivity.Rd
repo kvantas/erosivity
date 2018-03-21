@@ -4,12 +4,14 @@
 \alias{hyet_erosivity}
 \title{Compute raifall erosivity}
 \usage{
-hyet_erosivity(hyet, time_step)
+hyet_erosivity(hyet, time_step, calc_3hr_max = FALSE)
 }
 \arguments{
 \item{hyet}{a hyetograph from \code{hyet_create} function}
 
-\item{time_step}{hyetograph's time-step, integer
+\item{time_step}{hyetograph's time-step, integer}
+
+\item{calc_3hr_max}{if the 3 hours maximum precipitation values should be
 precipitation, boolean}
 }
 \value{
