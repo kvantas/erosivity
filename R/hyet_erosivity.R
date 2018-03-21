@@ -5,6 +5,8 @@
 #'
 #' @param hyet a hyetograph from \code{hyet_create} function
 #' @param time_step hyetograph's time-step, integer
+#' @param calc_3hr_max if the 3 hours maximum precipitation values should be
+#         calculate, boolean
 #' precipitation, boolean
 #'
 #' @return a tibble with erosive rainstorms' values
@@ -18,13 +20,16 @@
 #' # load data
 #' data(prec5min)
 #'
+#' # remove near zero values
+#' prec5min$prec <- round(prec5min$prec , 1)
+#'
 #' # compute EI
 #' time_step <- 5
 #' ei_values <- prec5min %>%
 #'  hyet_fill(time_step) %>%
 #'  hyet_erosivity(time_step)
 #'
-hyet_erosivity <- function(hyet, time_step) {
+hyet_erosivity <- function(hyet, time_step, calc_3hr_max = FALSE) {
 
   # check values ---------------------------------------------------------------
   if (!(time_step %in% c(5, 10, 15, 30))) {
@@ -121,6 +126,7 @@ hyet_erosivity <- function(hyet, time_step) {
   hyet <- dplyr::group_by(hyet, .data$extract_storm)
 
   # return EI values
+  if(calc_3hr_max) {
   dplyr::summarise(
     hyet,
     start_date = min(.data$date),
@@ -131,8 +137,25 @@ hyet_erosivity <- function(hyet, time_step) {
     ) + time_step,
     cum_prec = sum(.data$prec),
     max_i30 = max(.data$thirty_minutes) * 2,
-    max_prec_15_min = max(.data$fifteen_minutes),
+    max_prec_15min = max(.data$fifteen_minutes),
+    max_prec_3hr = max_aggr(hyet_create(.data$date, .data$prec), 3 * 60),
     max_prec = max(.data$prec),
     erosivity = sum(.data$energy * .data$prec) * .data$max_i30
   )
+  } else {
+    dplyr::summarise(
+      hyet,
+      start_date = min(.data$date),
+      end_date = max(.data$date),
+      duration = difftime(
+        .data$end_date, .data$start_date,
+        units = "mins"
+      ) + time_step,
+      cum_prec = sum(.data$prec),
+      max_i30 = max(.data$thirty_minutes) * 2,
+      max_prec_15min = max(.data$fifteen_minutes),
+      max_prec = max(.data$prec),
+      erosivity = sum(.data$energy * .data$prec) * .data$max_i30
+    )
+}
 }

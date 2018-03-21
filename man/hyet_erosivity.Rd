@@ -28,6 +28,9 @@ from the \code{hyet_create} function and its timestep.
 # load data
 data(prec5min)
 
+# remove near zero values
+prec5min$prec <- round(prec5min$prec , 1)
+
 # compute EI
 time_step <- 5
 ei_values <- prec5min \%>\%

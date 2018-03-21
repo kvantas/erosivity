@@ -1,6 +1,6 @@
 #' Five minutes precipitation time series
 #'
-#' This time series come from the a wether station from the Greek National Data
+#' This time series come from the a weather station from the Greek National Data
 #' Bank for Hydrological and Meteorological Information, Hydroscope.
 #' Precipitation's units of measurement is in mm and the time step is five
 #' minutes.

@@ -21,15 +21,6 @@ hyet_aggregate <- function(hyet, time_step_minutes) {
     stop("`time_step` must be a positive number.", call. = FALSE)
   }
 
-  # create aggredated date
-  hyet$date <- lubridate::ceiling_date(
-    hyet$date,
-    paste0(time_step_minutes, " mins")
-  )
-
-  # group by date
-  hyet <- dplyr::group_by(hyet, .data$date)
-
-  # summarise values
-  dplyr::summarise(hyet, prec = sum(.data$prec))
+  # call utility function
+  util_aggr(hyet, time_step_minutes)
 }
