@@ -29,6 +29,9 @@ max_aggr <- function(hyet, time_step_minutes) {
 }
 
 #' Utility function for hyetograph aggregation
+#' that function works only for minutes
+#' max_prec_1hr = max_aggr(hyet_create(.data$date, .data$prec), 60),
+
 #' @noRd
 util_aggr <- function(hyet, time_step_minutes) {
 

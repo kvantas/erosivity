@@ -134,8 +134,6 @@ hyet_erosivity <- function(hyet, time_step) {
     cum_prec = sum(.data$prec),
     max_i30 = max(.data$thirty_minutes) * 2,
     max_prec_15min = max(.data$fifteen_minutes),
-    max_prec_1hr = max_aggr(hyet_create(.data$date, .data$prec), 60),
-    max_prec_3hr = max_aggr(hyet_create(.data$date, .data$prec), 3 * 60),
     max_prec = max(.data$prec),
     erosivity = sum(.data$energy * .data$prec) * .data$max_i30
   )
