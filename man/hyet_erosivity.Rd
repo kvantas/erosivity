@@ -12,7 +12,7 @@ hyet_erosivity(hyet, time_step)
 \item{time_step}{hyetograph's time-step, integer}
 }
 \value{
-a tibble with erosive rainstorms' values
+a tibble with erosive values of erosive events
 }
 \description{
 \code{prec_eros} computes erosivity values using an hyetograph
