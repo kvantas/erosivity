@@ -74,13 +74,15 @@
 hyet_erosivity <- function(hyet, time_step, en_equation = "brown_foster") {
 
   # check values ---------------------------------------------------------------
+  # check time step
   if (!(time_step %in% c(5, 10, 15, 30))) {
     stop(
-      "`time_step` must have one of the values: 1, 5, 10, 15 or 30 minutes.",
+      "`time_step` must have one of the values 1, 5, 10, 15 or 30 minutes.",
       call. = FALSE
     )
   }
 
+  # check energy equation
   valid_equat <- c("brown_foster", "mcgregor_mutch", "wisch_smith")
   error_msg <- paste("`en_equation` must have one of the values:",
                      "`brown_foster`, `mcgregor_mutch`, `wisch_smith`")
@@ -88,6 +90,10 @@ hyet_erosivity <- function(hyet, time_step, en_equation = "brown_foster") {
     stop(error_msg, call. = FALSE)
   }
 
+  # check if hyet is longer than 6 hours
+  # TODO
+
+  # check if valide hyet
   hyet_check(hyet)
 
   # calc rolling-window sums ---------------------------------------------------
@@ -104,11 +110,6 @@ hyet_erosivity <- function(hyet, time_step, en_equation = "brown_foster") {
     hyet <- dplyr::mutate(
       hyet,
       fifteen_minutes = hyet_window_sum(.data$prec, 3)
-    )
-  } else if (time_step == 1) {
-    hyet <- dplyr::mutate(
-      hyet,
-      fifteen_minutes = hyet_window_sum(.data$prec, 15)
     )
   } else {
     hyet <- dplyr::mutate(

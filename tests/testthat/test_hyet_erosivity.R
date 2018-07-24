@@ -16,26 +16,12 @@ test_that("hyet_erosivity returns errors", {
 test_that("hyet_erosivity returns error if all precipitation values are zero", {
   date <- seq(
     from = as.POSIXct(0, origin = "2018-01-01"),
-    length.out = 10,
-    by = "5 mins"
+    length.out = 12,
+    by = "30 mins"
   )
-  prec <- rep(0, 10)
+  prec <- rep(0, 12)
 
-  expect_error(hyet_erosivity(hyet_create(date, prec), 5))
-})
-
-test_that("hyet_erosivity returns tibbles for all allowed time steps", {
-  hyet <- hyet_create(
-    date =  seq(from = as.POSIXct(0, origin = "2018-01-01"),
-                length.out = 100,
-                by = "5 min"),
-    prec = runif(100)
-  )
-
-  expect_is(hyet_erosivity(hyet, 5), "tbl_df")
-  expect_is(hyet_erosivity(hyet_aggregate(hyet, 10), 10), "tbl_df")
-  expect_is(hyet_erosivity(hyet_aggregate(hyet, 15), 15), "tbl_df")
-  expect_is(hyet_erosivity(hyet_aggregate(hyet, 30), 30), "tbl_df")
+  expect_error(hyet_erosivity(hyet_create(date, prec), 30))
 })
 
 test_that("hyet_erosivity returns correct values for a given rainstorm", {
