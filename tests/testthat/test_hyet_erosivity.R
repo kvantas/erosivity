@@ -41,13 +41,14 @@ test_that("hyet_erosivity returns tibbles for all allowed time steps", {
 test_that("hyet_erosivity returns correct values for a given rainstorm", {
 
   # create hyetograph
-  hyet <- hyet_create(
-    date = seq(
-      from = as.POSIXct(0, origin = "2018-01-01"),
-      length.out = 12,
-      by = "30 mins"),
-    prec = c(1.1, 2.3, 3.2, 1.9, 4.1, 5.9, 2.5, 3.1, 2.9, 1.2, 0.5, 0.2)
-  )
+
+  prec <- c(1.1, 2.3, 3.2, 1.9, 4.1, 5.9, 2.5, 3.1, 2.9, 1.2, 0.5, 0.2)
+  date <- seq(
+    from = as.POSIXct(0, origin = "2018-01-01"),
+    length.out = 12,
+    by = "30 mins")
+
+  hyet <- hyet_create(date, prec)
 
   # compute EI values
   ei_values <- hyet_erosivity(hyet, 30)
