@@ -11,7 +11,7 @@ hyet_erosivity(hyet, time_step, en_equation = "brown_foster")
 values must be in (mm).}
 
 \item{time_step}{hyetograph's time-step in minutes. Must have one of the
-values: \code{[1, 5, 10, 15, 30]}.}
+values: \code{[5, 10, 15, 30]}.}
 
 \item{en_equation}{a character string specifying the equation to be used
 for calculating kinetic energy of rainfall. Must have one of the values:
