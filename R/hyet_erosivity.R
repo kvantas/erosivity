@@ -83,7 +83,7 @@ hyet_erosivity <- function(hyet, time_step, en_equation = "brown_foster") {
 
   valid_equat <- c("brown_foster", "mcgregor_mutch", "wisch_smith")
   error_msg <- paste("`en_equation` must have one of the values:",
-                 "`brown_foster`, `mcgregor_mutch`, `wisch_smith`")
+                     "`brown_foster`, `mcgregor_mutch`, `wisch_smith`")
   if (!(en_equation %in% valid_equat)) {
     stop(error_msg, call. = FALSE)
   }
@@ -104,6 +104,11 @@ hyet_erosivity <- function(hyet, time_step, en_equation = "brown_foster") {
     hyet <- dplyr::mutate(
       hyet,
       fifteen_minutes = hyet_window_sum(.data$prec, 3)
+    )
+  } else if (time_step == 1) {
+    hyet <- dplyr::mutate(
+      hyet,
+      fifteen_minutes = hyet_window_sum(.data$prec, 15)
     )
   } else {
     hyet <- dplyr::mutate(
@@ -189,7 +194,7 @@ hyet_erosivity <- function(hyet, time_step, en_equation = "brown_foster") {
     max_prec_15min = max(.data$fifteen_minutes),
     max_prec = max(.data$prec),
     max_agr_1hr = max_aggr(hyet_create(.data$date, .data$prec),time_step =  1,
-                            units = "hours"),
+                           units = "hours"),
     max_agr_3hr = max_aggr(hyet_create(.data$date, .data$prec),time_step =  3,
                            units = "hours"),
     erosivity = sum(.data$energy * .data$prec) * .data$max_i30
