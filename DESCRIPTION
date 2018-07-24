@@ -6,9 +6,8 @@ Authors@R: person("Konstantinos", "Vantas", role = c("aut", "cre"),
   email = "kon.vantas@gmail.com",
   comment = c(ORCID = "0000-0001-6387-8791"))
 Maintainer: Konstantinos Vantas <kon.vantas@gmail.com>
-Description: Computes the rainfall erosivity from the Universal Soil Loss 
-  Equation (RUSLE) using precipitation data with a range of temporal
-  resolutions.
+Description: Computes the rainfall erosivity using precipitation data with a 
+range of temporal  resolutions.
 License: MIT + file LICENSE
 URL: https://github.com/kvantas/erosivity
 BugReports: https://github.com/kvantas/erosivity/issues             
