@@ -5,7 +5,7 @@
 #' @param hyet an hyetograph from \code{hyet_create} function. Precipitation
 #' values must be in (mm).
 #' @param time_step hyetograph's time-step in minutes. Must have one of the
-#' values: \code{[1, 5, 10, 15, 30]}.
+#' values: \code{[5, 10, 15, 30]}.
 #' @param en_equation a character string specifying the equation to be used
 #' for calculating kinetic energy of rainfall. Must have one of the values:
 #' \code{"brown_foster", "mcgregor_mutch", "wisch_smith"}.
@@ -74,7 +74,7 @@
 hyet_erosivity <- function(hyet, time_step, en_equation = "brown_foster") {
 
   # check values ---------------------------------------------------------------
-  if (!(time_step %in% c(1, 5, 10, 15, 30))) {
+  if (!(time_step %in% c(5, 10, 15, 30))) {
     stop(
       "`time_step` must have one of the values: 1, 5, 10, 15 or 30 minutes.",
       call. = FALSE

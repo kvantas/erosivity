@@ -16,20 +16,20 @@ test_that("hyet_erosivity returns errors", {
 test_that("hyet_erosivity returns error if all precipitation values are zero", {
   date <- seq(
     from = as.POSIXct(0, origin = "2018-01-01"),
-    length.out = 100,
+    length.out = 10,
     by = "5 mins"
   )
-  prec <- rep(0, 100)
+  prec <- rep(0, 10)
 
   expect_error(hyet_erosivity(hyet_create(date, prec), 5))
 })
 
 test_that("hyet_erosivity returns tibbles for all allowed time steps", {
-  hyet <- hyet_fill(prec5min, 10)
-
-  hyet <- dplyr::filter(
-    hyet,
-    date >= "1954-01-01 00:00:00 UTC" & date <= "1955-01-01 00:00:00 UTC"
+  hyet <- hyet_create(
+    date =  seq(from = as.POSIXct(0, origin = "2018-01-01"),
+                length.out = 100,
+                by = "5 min"),
+    prec = runif(100)
   )
 
   expect_is(hyet_erosivity(hyet, 5), "tbl_df")
