@@ -10,14 +10,13 @@
   \item{prec}{precipitation, in mm}
 }}
 \source{
-\url{http://kyy.hydroscope.gr/timeseries/d/1432/}
+http://kyy.hydroscope.gr/timeseries/d/1432/
 }
 \usage{
 prec5min
 }
 \description{
-This time series come from the a weather station from the Greek National Data
-Bank for Hydrological and Meteorological Information, Hydroscope.
+This time series comes from a weather station in Greece.
 Precipitation's units of measurement is in mm and the time step is five
 minutes.
 }

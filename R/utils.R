@@ -16,29 +16,39 @@ hyet_check <- function(hyet) {
 
 #' Calculate rainfall energy
 #' @noRd
-rain_energy <- function(intensity) {
+rain_energy <- function(intensity, en_equation = "brown_foster") {
   if (is.null(intensity)) return(NA)
-  0.29 * (1 - 0.72 * exp(-0.05 * intensity))
+
+  if (en_equation == "brown_foster") {
+    0.29 * (1 - 0.72 * exp(-0.05 * intensity))
+  } else if (en_equation == "wisch_smith") {
+    if (intensity > 76) {
+      0.283
+    } else {
+      0.119 + 0.0873 * log10(intensity)
+    }
+  } else if (en_equation == "mcgregor_mutch") {
+    0.273 + 0.2168 * exp(-0.048 * intensity) - 0.4126 * exp(-0.072 * intensity)
+  }
 }
 
-#' Calculate the maximum aggregated value in a hyetograph
+#' Calculate the maximum aggregated value in an hyetograph
 #' @noRd
-max_aggr <- function(hyet, time_step_minutes) {
-  hyet_aggr <- util_aggr(hyet, time_step_minutes)
+max_aggr <- function(hyet, time_step, units = "mins") {
+  hyet_aggr <- util_aggr(hyet, time_step, units)
   max(hyet_aggr$prec)
 }
 
 #' Utility function for hyetograph aggregation
-#' that function works only for minutes
 #' max_prec_1hr = max_aggr(hyet_create(.data$date, .data$prec), 60),
 
 #' @noRd
-util_aggr <- function(hyet, time_step_minutes) {
+util_aggr <- function(hyet, time_step_minutes, units = "mins") {
 
   # create aggredated date
   hyet$date <- lubridate::ceiling_date(
     hyet$date,
-    paste0(time_step_minutes, " mins")
+    paste(time_step_minutes, units)
   )
 
   # group by date

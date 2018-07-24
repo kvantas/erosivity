@@ -2,9 +2,16 @@ context("hyet_aggregate related tests")
 
 test_that("hyet_aggregate returns errors", {
 
+  # wrong unit
+  expect_error(hyet_aggregate(prec5min, time_step = 6, units = "weeks"))
+
   # wrong time step
   expect_error(hyet_aggregate(prec5min, 0))
   expect_error(hyet_aggregate(prec5min, 1.2))
+
+  # wrong combination of time_step and units
+  expect_error(hyet_aggregate(prec5min,time_step = 120, units = "mins"))
+  expect_error(hyet_aggregate(prec5min,time_step = 48, units = "hours"))
 
   # not valid hyetograph
   hyet <- tibble::tibble(date = c("a", "b"), prec = c(1, 2))

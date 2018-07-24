@@ -4,25 +4,52 @@
 \alias{hyet_erosivity}
 \title{Compute raifall erosivity}
 \usage{
-hyet_erosivity(hyet, time_step)
+hyet_erosivity(hyet, time_step, en_equation = "brown_foster")
 }
 \arguments{
-\item{hyet}{a hyetograph from \code{hyet_create} function}
+\item{hyet}{an hyetograph from \code{hyet_create} function. Precipitation
+values must be in (mm).}
 
-\item{time_step}{hyetograph's time-step, integer}
+\item{time_step}{hyetograph's time-step in minutes. Must have one of the
+values: \code{[1, 5, 10, 15, 30]}.}
+
+\item{en_equation}{a character string specifying the equation to be used
+for calculating kinetic energy of rainfall. Must have one of the values:
+\code{"brown_foster", "mcgregor_mutch", "wisch_smith"}.
+Default value is \code{"brown_foster"}.
+
+The rainfall's kinetic energy equations are:
+\itemize{
+\item{\emph{Brown and Foster (1987)},
+
+      \eqn{e = 0.29(1 - 0.72  exp(-0.05i))}}
+\item{\emph{McGregor and Mutchler (1976)},
+
+      \eqn{e = 0.273 + 0.2168exp(-0.048i) - 0.4126exp(-0.072i)}}
+\item{\emph{Wischmeier and Smith (1958)},
+
+      \eqn{e = 0.119 + 0.0873 * log10(i)},
+
+      with the upper limit of 0.283  MJ/ha/mm if \eqn{i} > 76 mm/h.}
+}
+In the above equations \eqn{i} is rainfall intensity (mm/hr) and \eqn{e} is
+the kinetic energy per unit of rainfall (MJ/ha/mm).}
 }
 \value{
-a tibble with erosive values of erosive events
+a tibble with values.
 }
 \description{
-\code{prec_eros} computes erosivity values using an hyetograph
-from the \code{hyet_create} function and its timestep.
+\code{prec_eros} computes erosivity values using an hyetograph.
 }
 \note{
 \code{hyet} must not contain missing dates. Please use the
-\code{hyet_fill} function before \code{prec_eros}.
+\code{hyet_fill} function before using \code{prec_eros}.
 }
 \examples{
+
+# load libraries
+library(dplyr)
+library(tibble)
 
 # load data
 data(prec5min)
@@ -36,4 +63,20 @@ ei_values <- prec5min \%>\%
  hyet_fill(time_step) \%>\%
  hyet_erosivity(time_step)
 
+ # filter erosivity events based on total rainfall height
+ ei_values \%>\%
+  filter(cum_prec >= 12.7)
+
+}
+\references{
+Brown, L. C., & Foster, G. R. (1987). Storm erosivity using idealized
+intensity distributions. Transactions of the ASAE, 30(2), 379-0386.
+
+McGregor, K. C., Bingner, R. L., Bowie, A. J., & Foster, G. R. (1995).
+Erosivity index values for northern Mississippi. Transactions of the ASAE,
+38(4), 1039-1047.
+
+Wischmeier, W. H., & Smith, D. D. (1958). Rainfall energy and its
+relationship to soil loss. Eos, Transactions American Geophysical Union,
+39(2), 285-291.
 }

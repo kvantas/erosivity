@@ -4,12 +4,15 @@
 \alias{hyet_aggregate}
 \title{Aggregate a hyetograph using a time step}
 \usage{
-hyet_aggregate(hyet, time_step_minutes)
+hyet_aggregate(hyet, time_step, units = "mins")
 }
 \arguments{
 \item{hyet}{a hyetograph from \code{hyet_create} function}
 
-\item{time_step_minutes}{the time step value in minutes}
+\item{time_step}{an integer specifying the time step value.}
+
+\item{units}{a character string specifying a time unit. Valid units are
+"mins" and "hours"}
 }
 \value{
 a tibble with the aggregated hyetograph

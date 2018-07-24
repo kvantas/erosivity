@@ -1,12 +1,13 @@
-#' @title  Calculate rolling window sum
+#' @title Calculate rolling window sum
 #'
-#' @description \code{hyet_window_sum} computes the rolling sum of precipitation
+#' @description \code{hyet_window_sum} computes the rolling sum of
 #' values.  Returns an error if \code{prec} is not a numeric vector or
 #' \code{rolling_window} not a positive integer.
 #'
 #'
-#' @param prec a vector with precipitation values
-#' @param rolling_window the rolling window as a number of time steps.
+#' @param prec a numeric vector
+#' @param rolling_window an integer that represents the rolling window as a
+#' number of time steps.
 #'
 #' @note Computing time depends on \code{rolling_window}. \code{hyet_window_sum}
 #' use R's base \code{rowSums} function with \code{na.rm = TRUE}.
@@ -24,7 +25,7 @@
 #' # fill hyetograph
 #' hyet <- hyet_fill(prec5min, 5)
 #'
-#' # set rolling window sum to 6 values
+#' # set rolling window sum to 6 records
 #' rolling_window <- 6
 #'
 #' # compute values

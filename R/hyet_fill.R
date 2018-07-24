@@ -5,7 +5,7 @@
 #' \code{time_step} is a not a numeric value.
 #'
 #' @param hyet a hyetograph from \code{hyet_create} function
-#' @param time_step hyetograph's time-step
+#' @param time_step hyetograph's time-step in minutes
 #'
 #' @return a tibble with the variables \code{date} and \code{prec}
 #' @export hyet_fill

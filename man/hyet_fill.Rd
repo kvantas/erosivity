@@ -9,7 +9,7 @@ hyet_fill(hyet, time_step)
 \arguments{
 \item{hyet}{a hyetograph from \code{hyet_create} function}
 
-\item{time_step}{hyetograph's time-step}
+\item{time_step}{hyetograph's time-step in minutes}
 }
 \value{
 a tibble with the variables \code{date} and \code{prec}

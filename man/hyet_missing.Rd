@@ -24,10 +24,10 @@ must start at the first day of a month.
 \examples{
 
 # load data
-data(prec10min)
+data(prec5min)
 
 # compute missing values ratio per month and year
-prec10min \%>\%
+prec5min \%>\%
 hyet_fill(time_step = 10) \%>\%
 hyet_missing()
 

@@ -3,6 +3,7 @@ title: "Rainfall erosivity calculation"
 author: "Konstantinos Vantas"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
+bibliography: bibliography.bib
 vignette: >
   %\VignetteIndexEntry{Vignette Title}
   %\VignetteEngine{knitr::rmarkdown}
@@ -16,7 +17,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-The R coefficient (MJ.mm/ha/h/yr) is defined as the long-term average of the product of the kinetic energy of a storm and the maximum 30 min intensity (Renard et. al, 1987):
+The R coefficient (MJ.mm/ha/h/yr) is defined as the long-term average of the product of the kinetic energy of a storm and the maximum 30 min intensity [@renard1991rusle]:
 
 $$R = \frac{1}{n} \sum_{j=1}^{n} \sum_{k=1}^{m_j} (EI_{30})_{k}$$
 
@@ -37,5 +38,3 @@ where $i_r$ is the rainfall intensity (mm/h). The rules that apply in order to s
    * during a time period of 15 mins a cumulative value of at least 6.4 mm is recorded.
 
 ## References
-
- 1. Renard, K. G., Foster, G. R., Weesies, G. A. and Porter, J. P. (1991), ‘RUSLE: Revised Universal Soil Loss Equation’, *Journal of Soil and Water Conservation* **46**(1), 30–33.
